@@ -6,5 +6,6 @@
 ## It's pretty straightforward once you get in the program, but you basically have two options.
 1. Generates a single 4/4 bar of music (rhythmic constraint).
 2. Generates a sequence of 8 notes (no rhythmic constraint).
+
 # WIP
 ## There's still much for me to add, such as more complex rhythms and etc. Stay tuned!
