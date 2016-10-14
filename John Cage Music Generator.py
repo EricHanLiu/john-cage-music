@@ -9,32 +9,73 @@ RHYTHMS = [
 	{"name": "SIXTEENTH", "value": 0.25},
 	{"name": "EIGHTH", "value": 0.5},
 	{"name": "QUARTER", "value": 1},
+	{"name": "DOTTED QUARTER", "value": 1.5},
 ]
 
-def generate_bar():
-	print
+def generate_right():
 	i = 0
 	while (i < 4):
 		a = randint(0, 11)
 		print NOTES[a], 
-		#rhythm shit
-		if (i > 3):
+		
+		#rhythm shit, must total 4 quarters 
+		if (i == 3.75):
 			rhythm = RHYTHMS[0]
+		elif (i >= 3.25):
+			rhythm = RHYTHMS[randint(0, 1)]
+		elif (i > 2.5):
+			rhythm = RHYTHMS[randint(0,2)]
 		else:
 			rhythm = random.choice(RHYTHMS)
 		print rhythm["name"]
 		i += rhythm["value"]
+		
+def generate_left():
+	#left hand will not have 16th notes
+	i = 0
+	while (i < 4):
+		a = randint(0, 11)
+		print NOTES[a], 
+		
+		#rhythm shit, must total 4 quarters 
+		if (i == 3.5):
+			rhythm = RHYTHMS[1]
+		elif (i > 2.5):
+			rhythm = RHYTHMS[randint(1,2)]
+		else:
+			rhythm = RHYTHMS[randint(1,3)]
+		print rhythm["name"]
+		i += rhythm["value"]
+		
+def generate_bar():
+	print
+	print "Right Hand:"
+	generate_right()
+
+	print 
+	print "Left Hand:"
+	generate_left()
 	
 def generate_eight():
 	print
+	
+	print "Right Hand:"
 	for i in range(8):
 		a = randint(0,11)
 		print NOTES[a],
-		#random rhythm doesn't need to fit in a 4/4
 		rhythm = random.choice(RHYTHMS)
 		print rhythm["name"]
+		
+	print 
+	
+	print "Left Hand:"
+	for i in range(8):
+		a = randint(0,11)
+		print NOTES[a],
+		rhythm = RHYTHMS[randint(1,3)]
+		print rhythm["name"]
 
-if input("1: Begin \n"):
+if input("1: Begin \n") == 1:
 	while True:
 		print
 		x = input("1: Generate 1 Bar \n2: Generate 8 Notes \n")
