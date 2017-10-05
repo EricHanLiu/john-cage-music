@@ -16,7 +16,7 @@ def generate_right():
 	i = 0
 	while (i < 4):
 		a = randint(0, 11)
-		print NOTES[a], 
+		print(NOTES[a], end=" ") 
 		
 		#rhythm shit, must total 4 quarters 
 		if (i == 3.75):
@@ -27,7 +27,7 @@ def generate_right():
 			rhythm = RHYTHMS[randint(0,2)]
 		else:
 			rhythm = random.choice(RHYTHMS)
-		print rhythm["name"]
+		print(rhythm["name"])
 		i += rhythm["value"]
 		
 def generate_left():
@@ -35,7 +35,7 @@ def generate_left():
 	i = 0
 	while (i < 4):
 		a = randint(0, 11)
-		print NOTES[a], 
+		print(NOTES[a], end=" ") 
 		
 		#rhythm shit, must total 4 quarters 
 		if (i == 3.5):
@@ -44,48 +44,48 @@ def generate_left():
 			rhythm = RHYTHMS[randint(1,2)]
 		else:
 			rhythm = RHYTHMS[randint(1,3)]
-		print rhythm["name"]
+		print(rhythm["name"])
 		i += rhythm["value"]
 		
 def generate_bar():
-	print
-	print "Right Hand:"
+	print()
+	print("Right Hand:")
 	generate_right()
 
-	print 
-	print "Left Hand:"
+	print()
+	print("Left Hand:")
 	generate_left()
 	
 def generate_eight():
-	print
+	print()
 	
-	print "Right Hand:"
+	print("Right Hand:")
 	for i in range(8):
 		a = randint(0,11)
-		print NOTES[a],
+		print(NOTES[a], end=" ")
 		rhythm = random.choice(RHYTHMS)
-		print rhythm["name"]
+		print(rhythm["name"])
 		
-	print 
+	print()
 	
-	print "Left Hand:"
+	print("Left Hand:")
 	for i in range(8):
 		a = randint(0,11)
-		print NOTES[a],
+		print(NOTES[a], end=" ")
 		rhythm = RHYTHMS[randint(1,3)]
-		print rhythm["name"]
+		print(rhythm["name"])
 
-if input("1: Begin \n") == 1:
+if input("1: Begin \n") == '1':
 	while True:
-		print
+		print()
 		x = input("1: Generate 1 Bar \n2: Generate 8 Notes \n")
-		if (x == 1):
+		if (x == '1'):
 			generate_bar()
-		elif (x == 2):
+		elif (x == '2'):
 			generate_eight()
 		else:
-			print "Invalid Option"
-			print "Exiting Program"
+			print("Invalid Option")
+			print("Exiting Program")
 			sys.exit(0)
 else:
 	sys.exit(0)
